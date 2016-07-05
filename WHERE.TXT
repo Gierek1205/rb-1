@@ -1,0 +1,1 @@
+5.10 http://guides.rubyonrails.org/getting_started.html

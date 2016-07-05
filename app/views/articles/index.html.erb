@@ -10,22 +10,21 @@
 
 </style>
 
-<h2 class="maciej">New articles</h2>
+<h1>Listing articles</h1>
 
-<div class="ja">
-<%= form_for :article do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-</div>
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<h2><%= link_to 'New article', new_article_path %></h2>
