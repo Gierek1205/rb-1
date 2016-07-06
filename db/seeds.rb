@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Article.delete_all
-20.times { Article.create(title: FFaker::Lorem.sentence, text: FFaker::Lorem.sentences.join("\n"))}
+5.times { Article.create(title: FFaker::Lorem.sentence, text: FFaker::Lorem.sentences.join("\n"))}
+CommentsController.delete_all

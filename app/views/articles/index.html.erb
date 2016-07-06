@@ -1,18 +1,14 @@
 <style>
-.maciej {
-  color: cyan;
-  text-align: center;
-}
-
-.ja{
-  color: red
-}
-
+  .mdl-layout{
+    align-items: center;
+    justify-content: center;
+  }
 </style>
 
-<h1>Listing articles</h1>
-
-<table>
+<h1 class="mdl-layout">Listing articles</h1>
+<h3 class="mdl-layout"><%= link_to 'New article', new_article_path %></h2>
+<div class="mdl-layout">
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
   <tr>
     <th>Title</th>
     <th>Text</th>
@@ -20,12 +16,19 @@
 
   <% @articles.each do |article| %>
     <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= article.title %> <br><h6> <%= link_to 'Show', article_path(article) %></h6></td>
+      <td><%= article.text %> <br> <%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Edit', edit_article_path(article) %></td>
+
+
+
     </tr>
+
+
   <% end %>
+
 </table>
+</div>
 <br>
-<h2><%= link_to 'New article', new_article_path %></h2>

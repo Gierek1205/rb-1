@@ -1,0 +1,23 @@
+<p>
+  <strong>Commenter:</strong>
+  <form action="#">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" id="sample3">
+      <label class="mdl-textfield__label" for="sample3"><%= comment.commenter %></label>
+    </div>
+  </form>
+
+</p>
+
+
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+
+  <p>
+    <%= link_to 'Destroy Comment', [comment.article, comment],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  </p>
+
+</p>
