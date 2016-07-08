@@ -1,30 +1,58 @@
-<h1>Hello, Rails!</h1>
-<% x = rand(1000)%>
-<%= link_to "My Blog, #{x}", controller: 'articles' %>
-<button id="demo-show-snackbar" class="mdl-button mdl-js-button mdl-button--raised" type="button">Change Color!!!</button>
-<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-  <div class="mdl-snackbar__text"></div>
-  <button class="mdl-snackbar__action" type="button"></button>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+</head>
+
+<style>
+
+  .white-text{
+    color: white;
+  }
+  .larger-btn{
+    padding-bottom: 30%;
+    padding-right: 30%;
+  }
+
+  body{
+    background-image: url("http://www.techychennai.com/wp-content/uploads/2014/02/dark-black-website-background.jpg");
+    background-size: cover;
+    height:100%;
+
+  }
+  .text-center{
+    text-align: center;
+  }
+
+  .mdl-grid-style-lol {
+    position:relative;
+    top:40%;
+    transform:translateY(-50%);
+  }
+
+
+</style>
+
+
+
+<!-- - ***********************PAGE---------------------->
+
+
+<div class="mdl-grid-style-lol">
+<div class="mdl-grid">
+<div class="mdl-cell mdl-cell--no-spacing"></div>
+<div class="mdl-cell md-cell--4-col">
+
+
+  <h1 class="white-text text-center">First Ruby Blog<i class="material-icons"></i></h1>
+  <button class="mdl-button mdl-js-button mdl-button--primary larger-btn">
+    <a href="/articles">Articles!</a>
+  </button>
+
+
+  </div>
+  <div class="mdl-cell mdl-cell--no-spacing"></div>
+
 </div>
-<script>
-(function() {
-  'use strict';
-  var snackbarContainer = document.querySelector('#demo-snackbar-example');
-  var showSnackbarButton = document.querySelector('#demo-show-snackbar');
-  var handler = function(event) {
-    showSnackbarButton.style.backgroundColor = '';
-  };
-  showSnackbarButton.addEventListener('click', function() {
-    'use strict';
-    showSnackbarButton.style.backgroundColor = '#' +
-        Math.floor(Math.random() * 0xFFFFFF).toString(16);
-    var data = {
-      message: 'Button color changed.',
-      timeout: 2000,
-      actionHandler: handler,
-      actionText: 'Undo'
-    };
-    snackbarContainer.MaterialSnackbar.showSnackbar(data);
-  });
-}());
-</script>
+</div>

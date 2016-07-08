@@ -1,34 +1,72 @@
+
+
+
 <style>
   .mdl-layout{
     align-items: center;
     justify-content: center;
   }
+
+  .align-right{
+    text-align: right;
+    margin-right: 50px;
+
+  }
+
+  <!-- Wide card with share menu button -->
+<style>
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../assets/demos/welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
 </style>
 
-<h1 class="mdl-layout">Listing articles</h1>
-<h3 class="mdl-layout"><%= link_to 'New article', new_article_path %></h2>
-<div class="mdl-layout">
-<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
-
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %> <br><h6> <%= link_to 'Show', article_path(article) %></h6></td>
-      <td><%= article.text %> <br> <%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-                  <%= link_to 'Edit', edit_article_path(article) %></td>
 
 
+<h1 class="mdl-layout">All articles:</h1>
 
-    </tr>
+  <h6 class="align-right"><%= link_to 'New article', new_article_path %></h6>
 
 
-  <% end %>
-
-</table>
-</div>
 <br>
+
+<div class="mdl-grid">
+<% @articles.reverse.each do |article| %>
+<div class="mdl-cell md-cell--4-col">
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text"><%= article.title %></h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+      <td><%= truncate(article.text, 30) %></td>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+    <%= link_to 'Show', article_path(article) %>
+    <%= link_to 'Destroy', article_path(article),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Edit', edit_article_path(article) %>
+    </a>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
+</div>
+</div>
+
+<br>
+
+<% end %>
+</div>
